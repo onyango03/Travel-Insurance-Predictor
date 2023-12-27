@@ -380,7 +380,7 @@ plot_confusion_matrix <- function(cm) {
     theme_minimal()
 }
 
-# Plot confusion matrix
+# Plot confusion matrix to get a better understanding of the spread of our results
 plot_confusion_matrix(conf_matrix)
 
 false_positives <- results[results$Predicted == 1 & results$Actual == 0, ]
@@ -389,7 +389,7 @@ false_positives <- results[results$Predicted == 1 & results$Actual == 0, ]
 print("False Positives:")
 print(false_positives)
 
-# Compare results
+# Compare results of the different types of models used
 comparison_df <- data.frame(Model = c("Random Forest", "Logistic Regression", "K-Nearest Neighbors"),
                             Accuracy = c(Rf_accuracy, lr_accuracy, knn_accuracy),
                             Precision = c(Rf_precision, lr_precision, knn_precision),
